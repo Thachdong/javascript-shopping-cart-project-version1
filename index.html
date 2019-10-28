@@ -8,17 +8,21 @@
 
   <!-- font awesome -->
   <script src="https://kit.fontawesome.com/3a5f9214d4.js" crossorigin="anonymous"></script>
+  <!-- styles -->
   <link rel="stylesheet" href="styles/styles.css">
+  <!-- animate css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 </head>
-<body>
-<div class="sticky">
-
+<body class="animated">
+<div class="sticky animated fadeInLeftBig">
   <header class="header">
     <div class="top-nav">
       <span class="nav-icon">
         <i class="fas fa-bars"></i>
       </span>
-      <img src="./images/logo.svg" alt="logo">
+      <a href="#">
+        <img src="./images/logo.svg" alt="logo">
+      </a>
       <form class="search-box" id="large">
         <input type="text" placeholder="Search items ...">
         <button id="search-no-1">search</button>
@@ -56,10 +60,10 @@
   <!--end of navigation bar -->
 </div>
   <!-- hero -->
-  <section class="hero">
+  <section class="hero animated fadeInRightBig">
     <div class="banner">
       <h1 class="banner-title">funiture collection</h1>
-      <a href="#">
+      <a href="#products">
         <button class="banner-btn">shop now</button>
       </a>
     </div>
@@ -86,7 +90,7 @@
   </div>
   <!-- cart -->
   <!-- display items -->
-  <section class="products" id="products">
+  <section class="products animated fadeInUp" id="products">
     <div class="section-title">
       <h2>our products</h2>
     </div>
@@ -97,7 +101,7 @@
   <!-- end of display items -->
 
   <!-- footer -->
-  <footer>
+  <footer class="animated fadeInLeftBig">
     <div>
       <h4>contact us</h4>
       <p>Address: 75C, Binh Chieu ward, Thu Duc Dis, HCM city</p>

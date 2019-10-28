@@ -17,6 +17,7 @@ const navBar = document.querySelector(".navbar");
 const verticalNavBar = document.querySelector(".vertical-navbar ul");
 const navItems = document.getElementsByClassName("nav-item");
 const sectionTitle = document.querySelector(".section-title h2");
+const bannerBtn = document.querySelector(".banner-btn");
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let buttonsDOM = [];
@@ -50,6 +51,11 @@ class UI {
     this.renderCart(cart);
     // set  cart value
     this.setCartValue(cart);
+    // banner button
+    let products = JSON.parse(localStorage.getItem("products"))
+    bannerBtn.addEventListener("click", () => {
+      this.displayproducts(products);
+    });
   }
 
   renderCart(cart) {
@@ -79,7 +85,7 @@ class UI {
     let productUi = "";
     products.forEach(product => {
       productUi += `
-        <article class="product">
+        <article class="product animated fadeInUp">
           <div class="img-container">
             <img src=${product.image} alt="product" class="product-img">
             <button class="add-to-cart-btn" data-id=${product.id}>
