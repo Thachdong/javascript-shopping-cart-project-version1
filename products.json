@@ -1,0 +1,88 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "title": "queen panel bed",
+      "price": 10.99,
+      "image": "./images/product-1.jpeg",
+      "styleType": "italy" 
+    },
+    {
+      "id": "2",
+      "title": "king panel bed",
+      "price": 12.99,
+      "image": "./images/product-2.jpeg",
+      "styleType": "danemark"
+    },
+    {
+      "id": "3",
+      "title": "single panel bed",
+      "price": 12.99,
+      "image": "./images/product-3.jpeg",
+      "styleType": "italy"
+    },
+    {
+      "id": "4",
+      "title": "twin panel bed",
+      "price": 22.99,
+      "image": "./images/product-4.jpeg",
+      "styleType": "danemark"
+    },
+    {
+      "id": "5",
+      "title": "fridge",
+      "price": 88.99,
+      "image": "./images/product-5.jpeg",
+      "styleType": "italy"
+    },
+    {
+      "id": "6",
+      "title": "dresser",
+      "price": 32.99,
+      "image": "./images/product-6.jpeg",
+      "styleType": "italy" 
+    },
+    {
+      "id": "7",
+      "title": "couch",
+      "price": 45.99,
+      "image": "./images/product-7.jpeg",
+      "styleType": "danemark"
+    },
+    {
+      "id": "8",
+      "title": "table",
+      "price": 33.99,
+      "image": "./images/product-8.jpeg",
+      "styleType": "france"
+    },
+    {
+      "id": "9",
+      "title": "simply stunning",
+      "price": 40.99,
+      "image": "./images/product-9.jpg",
+      "styleType": "danemark"
+    },
+    {
+      "id": "10",
+      "title": "penthouse apartment",
+      "price": 45.50,
+      "image": "./images/product-10.jpg",
+      "styleType": "france"
+    },
+    {
+      "id": "11",
+      "title": "penthouse",
+      "price": 45.50,
+      "image": "./images/product-11.jpg",
+      "styleType": "france"
+    },
+    {
+      "id": "12",
+      "title": "bedroom apartment",
+      "price": 45.50,
+      "image": "./images/product-12.jpg",
+      "styleType": "france"
+    }
+  ]
+}

@@ -1,0 +1,453 @@
+// declaring variable
+$primaryColor: #f09d51;
+$mainBlack: #222;
+$mainWhite: #fff;
+$mainGrey: #ececec;
+$mainSpacing: 0.1rem;
+$mainTransition: all 0.3s linear;
+
+// mixin declaration
+@mixin flex-box($justify-content, $align-items) {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content:$justify-content;
+  align-items: $align-items;
+}
+
+@mixin hover-class {
+  background: $primaryColor;
+  border-bottom: .1rem solid $mainBlack;
+}
+
+@mixin nav-link {
+  display: block;
+  padding: 1rem 5rem;
+  transition: $mainTransition;
+  cursor: pointer;
+  text-transform: capitalize;
+  list-style: none;
+  letter-spacing: $mainSpacing;
+  font-size: 1.25rem;
+  font-weight: 500;
+  &:hover {
+    @include hover-class();
+    border-bottom: none;
+  }
+}
+
+@mixin primary-btn {
+  text-align: center;
+  padding: 1rem 3rem;
+  color: $mainBlack;
+  letter-spacing: $mainSpacing;
+  text-transform: uppercase;
+  background: $primaryColor;
+  border: .1rem solid $primaryColor;
+  cursor: pointer;
+  font-weight: 500;
+  transition: $mainTransition;
+  &:hover {
+    color: $primaryColor;
+    background: transparent;
+  }
+}
+
+@mixin search-box() {
+  width: 30%;
+  @include flex-box(center, center);
+  input {
+    width: 75%;
+    display: inline-block;
+    width: 80%;
+    width: 75%;
+    padding: .5rem;
+    border: none;
+  }
+  button {
+    display: inline-block;
+    text-transform: capitalize;
+    padding: .5rem;
+    font-weight: 500;
+    background: $primaryColor;
+    border: 2px solid $primaryColor;
+    cursor: pointer;
+    border: none;
+  }
+}
+// end of mixin declaration
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: $mainBlack;
+  background: $mainWhite;
+  font-family: "Lato" sans-serif;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+}
+// header
+.header {
+  background: $mainGrey;
+  .top-nav {
+    @include flex-box(space-evenly, center);
+    padding: 1rem 0;
+  }
+
+  .nav-icon {
+    display: none;
+    cursor: pointer;
+  }
+
+  .search-box {
+    @include search-box();
+  }
+
+  .cart-btn {
+    position: relative;
+    cursor: pointer;
+    .cart-icon {
+      font-size: 2rem;
+    }
+    .cart-items {
+      position: absolute;
+      top: -.1rem;
+      right: .25rem;
+      padding: 0 .25rem;
+      color: $mainWhite;
+      background: $primaryColor;
+      border-radius: .3rem;
+    }
+  }
+}
+// end of header
+
+// small screen search box
+.search-box-fluid {
+  display: none;
+  width: 100%;
+  text-align: center;
+  transition: $mainTransition;
+  .search-box {
+    @include search-box();
+    margin: .5rem auto;
+    min-width: 50%;
+    input {
+      border-bottom: .1rem solid $mainGrey;
+    }
+  }
+}
+// end of small screen search box
+
+// horizontal navbar
+.navbar {
+  @include flex-box(center, center);
+  list-style-type: none;
+  background: $mainWhite;
+  .nav-link {
+    @include nav-link();
+    text-decoration: none;
+    color: $mainBlack;
+  }
+}
+// end of horizontal navbar
+
+// vertical nav bar
+.vertical-navbar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 30%;
+  height: 100vh;
+  background: $mainWhite;
+  z-index: 3;
+  transform: translateX(-100%);
+  transition: $mainTransition;
+  .close-nav-btn {
+    display: block;
+    width: 100%;
+    text-align: right;
+    padding: 1rem;
+    cursor: pointer;
+  }
+
+  i {
+    font-size: 2rem;
+  }
+
+  ul {
+    position: relative;
+    list-style: none;
+  }
+
+  .nav-link {
+    @include nav-link();
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    color: $mainBlack;
+  }
+}
+// end of vertical navbar
+
+// herro
+.hero {
+ background: {
+  image: url("../images/hero-bcg.jpeg");
+  size: cover;
+  position: center;
+  repeat: no-repeat;
+ }
+ height: 80vh;
+ width: 100%;
+ @include flex-box(center, center);
+ .banner {
+   @include flex-box(center, center);
+   flex-direction: column;
+   background: rgba(255, 255, 255, 0.8);
+   padding: 2rem;
+ }
+
+ .banner-title {
+  color: $mainBlack;
+  letter-spacing: $mainSpacing;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 3.4rem;
+  margin-bottom: 3rem;
+ }
+
+ .banner-btn {
+  text-align: center;
+  padding: 1rem 3rem;
+  color: $mainBlack;
+  letter-spacing: $mainSpacing;
+  text-transform: uppercase;
+  background: $primaryColor;
+  border: .1rem solid $primaryColor;
+  cursor: pointer;
+  font-weight: 500;
+  transition: $mainTransition;
+  &:hover {
+    color: $primaryColor;
+    background: transparent;
+  }
+ }
+}
+// end of hero
+
+// cart
+.cart-bg {
+  position: fixed;
+  top: 0;
+  z-index: 4;
+  height: 100vh;
+  width: 100%;
+  background: rgba(240, 157, 81, 0.5);
+  @include flex-box(flex-end, center);
+  visibility: hidden;
+  
+  .cart {
+    width: 30%;
+    height: 100vh;
+    padding: 0 .5rem;
+    background: rgb(231, 226, 221);
+    overflow: auto;
+    transition: $mainTransition;
+    transform: translateX(100%);
+  }
+
+  h1 {
+    text-transform: capitalize;
+    text-align: center;
+    letter-spacing: $mainSpacing;
+    margin-bottom: 1rem;
+  }
+
+  .close-cart-btn {
+    font-size: 2rem;
+    padding: 1rem;
+    display: inline-block;
+    margin-bottom: 0;
+    cursor: pointer;
+  }
+
+  .cart-item {
+    @include flex-box(space-evenly, center);
+    border-bottom: .1rem solid $mainGrey;
+    padding: .75rem 0;
+  }
+
+  .cart-item-info {
+    flex-grow: 2;
+    padding: .5rem;
+    text-transform: capitalize;
+    letter-spacing: $mainSpacing;
+    h4, p {
+      padding-bottom: .5rem;
+    }
+  }
+
+  .remove-item {
+    color: #a1a1a1;
+  }
+
+  .cart-item-img {
+    max-width: 70px;
+    height: 75px;
+  }
+
+  .item-amount {
+    text-align: center;
+  }
+
+  .cart-total {
+    text-transform: capitalize;
+    text-align: center;
+    letter-spacing: $mainSpacing;
+    margin-bottom: 3rem;
+    h2 {
+      padding: 1rem;
+    }
+    .clear-cart-btn {
+      @include primary-btn();
+    }
+  }
+}
+// end of cart
+
+// products
+.products {
+  padding: 4rem 0;
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 5rem;
+    text-transform: capitalize;
+    letter-spacing: $mainSpacing;
+  }
+  .product-center {
+    width: 90vw;
+    margin: 0 auto;
+    max-width: 1170px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 2rem;
+  }
+  .img-container {
+    position: relative;
+    overflow: hidden;
+    z-index: 1!important;
+    &:hover .add-to-cart-btn {
+      transform: translateX(0);
+    }
+    &:hover .product-img {
+      opacity: .5;
+    }
+  }
+  .add-to-cart-btn {
+    position: absolute;
+    top: 70%;
+    right: 0;
+    background: $primaryColor;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: $mainSpacing;
+    transition: $mainTransition;
+    cursor: pointer;
+    border: none;
+    padding: .5rem .75rem;
+    transform: translateX(101%);
+    &:hover {
+      color: $mainWhite;
+    }
+    .fa-shopping-cart {
+      margin-right: .5rem;
+    }
+  }
+  .product-img {
+    display: block;
+    width: 100%;
+    min-height: 12rem;
+    transition: $mainTransition;
+  }
+  h3 {
+    text-transform: capitalize;
+    font-size: 1.25rem;
+    margin-top: 1rem;
+    letter-spacing: $mainSpacing;
+    text-align: center;
+  }
+  h4 {
+    margin-top: .75rem;
+    letter-spacing: $mainSpacing;
+    color: $primaryColor;
+    text-align: center;
+  }
+}
+// end of products
+
+// footer
+footer {
+  width: 100%;
+  padding: 3rem;
+  background: $mainGrey;
+  @include flex-box(space-around, center);
+  align-items: baseline;
+  h4 {
+    text-transform: uppercase;
+    padding-bottom: 1rem .75rem;
+  }
+  p {
+    padding: .75rem 0;
+  }
+
+  a {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 2rem;
+  }
+}
+// end of footer
+// responsive
+@media screen and(max-width: 768px) {
+  .navbar {
+    display: none;
+  }
+  .header .nav-icon {
+    display: inline-block;
+  }
+  .header .search-box {
+    display: none;
+  }
+  .search-box-fluid {
+    display: block;
+  }
+  .hero .banner-title {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  .cart-bg .cart {
+    width: 100%;
+  }
+
+  footer {
+    flex-flow: column nowrap;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .vertical-navbar {
+    width: 100%;
+  }
+}
+// end of responsive
+
