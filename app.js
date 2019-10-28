@@ -267,6 +267,25 @@ class UI {
   getSingleButton(id) {
     return buttonsDOM.find(button => button.dataset.id === id);
   }
+
+  // VII search logic
+  searchLogic() {
+    let searchBtns = document.querySelectorAll(".search-box button");
+    searchBtns = [...searchBtns];
+    searchBtns.forEach(searchBtn => {
+      searchBtn.addEventListener("click", (ev) => {
+        let searchValue1 = document.querySelector("#large input");
+        let searchValue2 = document.querySelector("#small input");
+        let searchValue = searchValue1 || searchValue2;
+        searchValue = searchValue.value.toLowerCase();
+        let products = JSON.parse(localStorage.getItem("products"));
+        let searchItems = products.filter(product => {
+          return product.title.toLowerCase().indexOf(searchValue) !== -1;
+        });
+        this.displayproducts(searchItems);
+      });
+    });
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -285,5 +304,6 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(() => {
       ui.navBarLogic();
       ui.cartLogic();
+      ui.searchLogic();
     });
 });
